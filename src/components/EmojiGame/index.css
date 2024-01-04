@@ -1,0 +1,65 @@
+/* Write your code here. */
+.bg-container {
+  min-height: 100vh;
+  font-family: 'Roboto';
+  background-image: linear-gradient(45deg, #9796f0, #fbc7d4);
+}
+.emoji-container {
+  display: flex;
+  max-width: 800px;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btm-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.result-container {
+  height: 400px;
+  width: 600px;
+  padding: 20px;
+  margin-top: 40px;
+  border: 2px solid #ffffff30;
+  background-color: #ffffff33;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.result-heading {
+  margin-top: 40px;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.result-image {
+  height: 350px;
+  width: 250px;
+}
+.score {
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+.resultant-score {
+  color: #6a59ff;
+  font-size: 20px;
+}
+.result-btn {
+  padding: 8px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #ffce27;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}

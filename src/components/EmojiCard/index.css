@@ -1,0 +1,24 @@
+/* Write your code here. */
+.emoji-card {
+  height: 150px;
+  width: 150px;
+  margin: 20px;
+  border: 1px solid #ffffff30;
+  background-color: #ffffff33;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.emoji {
+  height: 100px;
+  width: 100px;
+}
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}

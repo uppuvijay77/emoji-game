@@ -14,6 +14,7 @@ const shuffledEmojisList = () => {
 import {Component} from 'react'
 import NavBar from '../NavBar'
 import EmojiCard from '../EmojiCard'
+import WinOrLossCard from '../WinOrLoseCard'
 import './index.css'
 
 class EmojiGame extends Component {
@@ -43,6 +44,22 @@ class EmojiGame extends Component {
     }
   }
 
+  onPlayAgain = () => {
+    const {score, totalScore} = this.state
+    let topScore
+    if (score >= totalScore) {
+      topScore = score
+    } else {
+      topScore = totalScore
+    }
+    this.setState({
+      isTrue: true,
+      selectedEmojiList: [],
+      score: 0,
+      totalScore: topScore,
+    })
+  }
+
   shuffledEmojisList = () => {
     const {emojisList} = this.props
     return emojisList.sort(() => Math.random() - 0.5)
@@ -54,9 +71,9 @@ class EmojiGame extends Component {
     this.shuffledEmojisList()
     return (
       <div className="bg-container">
-        <NavBar score={score} totalScore={totalScore} />
+        <NavBar score={score} totalScore={totalScore} isTrue={isTrue} />
         <div className="btm-section">
-          {isTrue ? (
+          {isTrue && score < 12 ? (
             <ul className="emoji-container">
               {emojisList.map(eachEmoji => (
                 <EmojiCard
@@ -68,6 +85,25 @@ class EmojiGame extends Component {
             </ul>
           ) : (
             <div>
+              <WinOrLossCard
+                isTrue={isTrue}
+                isWin={isWin}
+                score={score}
+                topScore={totalScore}
+                onPlayAgain={this.onPlayAgain}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+}
+export default EmojiGame
+
+/*
+
+<div>
               {isWin ? (
                 <div className="result-container">
                   <div className="result">
@@ -106,10 +142,5 @@ class EmojiGame extends Component {
                 </div>
               )}
             </div>
-          )}
-        </div>
-      </div>
-    )
-  }
-}
-export default EmojiGame
+
+ */

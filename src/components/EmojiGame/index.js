@@ -27,13 +27,19 @@ class EmojiGame extends Component {
   }
 
   onClickEmoji = id => {
-    const {selectedEmojiList} = this.state
+    const {selectedEmojiList, score, totalScore} = this.state
+    let big
+    if (score >= totalScore) {
+      big = score
+    } else {
+      big = totalScore
+    }
 
     if (!selectedEmojiList.includes(id)) {
       this.setState(prevState => ({
         selectedEmojiList: [...prevState.selectedEmojiList, id],
         score: prevState.score + 1,
-        totalScore: prevState.totalScore + 1,
+        totalScore: big,
         isTrue: true,
       }))
       if (selectedEmojiList.length === 12) {
@@ -42,21 +48,14 @@ class EmojiGame extends Component {
     } else {
       this.setState({isTrue: false, isWin: false})
     }
+    console.log(score, totalScore)
   }
 
   onPlayAgain = () => {
-    const {score, totalScore} = this.state
-    let topScore
-    if (score >= totalScore) {
-      topScore = score
-    } else {
-      topScore = totalScore
-    }
     this.setState({
       isTrue: true,
       selectedEmojiList: [],
       score: 0,
-      totalScore: topScore,
     })
   }
 
@@ -142,5 +141,16 @@ export default EmojiGame
                 </div>
               )}
             </div>
+
+
+
+
+             const {score, totalScore} = this.state
+    let topScore
+    if (score >= totalScore) {
+      topScore = score
+    } else {
+      topScore = totalScore
+    }
 
  */
